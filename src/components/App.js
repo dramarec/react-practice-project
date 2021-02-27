@@ -1,10 +1,9 @@
-import React from "react";
+import React from 'react';
 
 function App() {
     return (
         <div className="App">
-            <h1>Home Work #2 Feedback</h1>
-            <header className="App-header"></header>
+            <h1>The Star Wars API</h1>
         </div>
     );
 }
