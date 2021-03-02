@@ -1,37 +1,55 @@
-// import React from "react";
-// import ReactDOM from "react-dom";
-// import "./index.css";
-// import App from "./components/App";
+class SwapiService {
+    _apiBase = 'https://swapi.dev/api';
 
-// ReactDOM.render(
-//     <React.StrictMode>
-//         <App />
-//     </React.StrictMode>,
-//     document.getElementById("root")
-// );
+    async getResource(url) {
+        const res = await fetch(`${this._apiBase}${url}`);
 
-const getResource = async url => {
-    const res = await fetch(url);
-
-    if (!res.ok) {
-        throw new Error(`Could not fetch ${url} + , received ${res.status}`);
+        if (!res.ok) {
+            throw new Error(
+                `Could not fetch ${url} + , received ${res.status}`,
+            );
+        }
+        return await res.json();
     }
-    const body = await res.json();
-    return body;
-};
-getResource('https://swapi.dev/api/people/1/')
-    .then(body => {
-        console.log(body);
-    })
-    .catch(err => {
-        console.error('Couldnt not fetch', err);
-    });
+    async getAllPeaple() {
+        const res = await this.getResource(`/people/`);
+        return res.results;
+    }
+    getPerson(id) {
+        return this.getResource(`/people/${id}/`);
+    }
+    async getAllPlanets() {
+        const res = await this.getResource(`/planets/`);
+        return res.results;
+    }
+    getPlanet(id) {
+        return this.getResource(`/planets/${id}/`);
+    }
+    async getAllStarships() {
+        const res = await this.getResource(`/starships/`);
+        return res.results;
+    }
+    getStarship(id) {
+        return this.getResource(`/starships/${id}/`);
+    }
+}
+const swapi = new SwapiService();
 
-// fetch('https://swapi.dev/api/people/1/')
-//     .then(res => {
-//         // console.log('Got response', res.status);
-//         return res.json();
-//     })
-//     .then(body => {
-//         console.log(body);
-//     });
+swapi
+    .getAllPeaple()
+    .then(people => {
+        people.forEach(p => {
+            console.log(p.name);
+        });
+    })
+    .catch(error => {
+        console.log(error);
+    });
+swapi
+    .getPerson(1)
+    .then(person => {
+        console.log(person.name);
+    })
+    .catch(error => {
+        console.log(error);
+    });
