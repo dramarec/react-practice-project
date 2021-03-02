@@ -4,6 +4,9 @@ const HeaderStyled = styled.header`
     display: flex;
     margin-top: 0.5rem;
     padding-left: 10px;
+    h1 {
+        font-family: star_jedi_outline;
+    }
 
     ul {
         list-style: none;

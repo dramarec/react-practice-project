@@ -6,20 +6,23 @@ import HeaderStyled from './HeaderStyled';
 const Header = () => {
     return (
         <HeaderStyled>
-            <h3>
-                <a href="#">Star DB</a>
-            </h3>
-            <ul>
-                <li>
-                    <a href="#">People</a>
-                </li>
-                <li>
-                    <a href="#">Planets</a>
-                </li>
-                <li>
-                    <a href="#">Starships</a>
-                </li>
-            </ul>
+            <h1>STAR WARS</h1>
+            <div>
+                <h3>
+                    <a href="#">Star DB</a>
+                </h3>
+                <ul>
+                    <li>
+                        <a href="#">People</a>
+                    </li>
+                    <li>
+                        <a href="#">Planets</a>
+                    </li>
+                    <li>
+                        <a href="#">Starships</a>
+                    </li>
+                </ul>
+            </div>
         </HeaderStyled>
     );
 };
