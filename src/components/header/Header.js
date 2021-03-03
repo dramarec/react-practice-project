@@ -3,26 +3,37 @@
 import React from 'react';
 import HeaderStyled from './HeaderStyled';
 
-const Header = () => {
+const Header = ({ togleShowPlanet }) => {
     return (
         <HeaderStyled>
-            <h1>STAR WARS</h1>
-            <div>
-                <h3>
-                    <a href="#">Star DB</a>
-                </h3>
-                <ul>
-                    <li>
-                        <a href="#">People</a>
-                    </li>
-                    <li>
-                        <a href="#">Planets</a>
-                    </li>
-                    <li>
-                        <a href="#">Starships</a>
-                    </li>
-                </ul>
-            </div>
+            <h3 className="nav-logo">
+                <a href="#">STAR WARS</a>
+            </h3>
+            <ul className="nav-list">
+                <li className="nav-item">
+                    <a className="nav-links" href="#">
+                        People
+                    </a>
+                </li>
+                <li className="nav-item">
+                    <a className="nav-links" href="#">
+                        Planets
+                    </a>
+                </li>
+                <li className="nav-item">
+                    <a className="nav-links" href="#">
+                        Starships
+                    </a>
+                </li>
+            </ul>
+            <button
+                onClick={togleShowPlanet}
+                // className="toggle-planet btn btn-warning btn-lg"
+                className="toggle-planet "
+                type="button"
+            >
+                Show Planet
+            </button>
         </HeaderStyled>
     );
 };
