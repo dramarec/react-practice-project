@@ -15,7 +15,7 @@ const ErrorButtonStyled = styled.button`
         fill: white;
     }
     &:hover {
-        background-color: #fff;
+        background-color: inherit;
         & svg {
             fill: tomato;
         }
