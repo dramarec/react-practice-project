@@ -20,6 +20,8 @@ const HeaderStyled = styled.header`
         margin-right: 40px;
     }
     .nav-links {
+        transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
         &:hover {
             color: #ccc;
         }
@@ -30,6 +32,8 @@ const HeaderStyled = styled.header`
         width: 100px;
         height: 40px;
         border: none;
+        transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
         &:hover {
             color: white;
             background-color: blue;

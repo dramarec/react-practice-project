@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 const ItemListStyled = styled.div`
-    margin-bottom: 1rem;
-    max-width: 700px;
+    /* margin-bottom: 1rem; */
+    width: 300px;
 
     .list-group-item {
         cursor: pointer;

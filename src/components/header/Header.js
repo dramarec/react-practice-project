@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
+import ErrorButton from '../errorButton/ErrorButton';
 import HeaderStyled from './HeaderStyled';
 
 const Header = ({ togleShowPlanet }) => {
@@ -34,6 +35,7 @@ const Header = ({ togleShowPlanet }) => {
             >
                 Show Planet
             </button>
+            <ErrorButton />
         </HeaderStyled>
     );
 };

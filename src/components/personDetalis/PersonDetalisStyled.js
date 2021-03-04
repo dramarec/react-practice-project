@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const PersonDetailsStyled = styled.div`
+    /* background-color: #444; */
     /* .person-details { */
     display: flex;
     flex-direction: row;
