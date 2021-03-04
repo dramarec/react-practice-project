@@ -4,6 +4,7 @@ const HeaderStyled = styled.header`
     display: flex;
     margin-top: 0.5rem;
     padding-left: 10px;
+    margin-bottom: 0;
     .nav-logo {
         margin-right: auto;
         font-family: star_jedi_outline;
@@ -14,6 +15,7 @@ const HeaderStyled = styled.header`
         display: flex;
         padding: 0.5rem 1rem;
         border-radius: 3px;
+        margin-bottom: 0;
     }
 
     .nav-item {
@@ -27,7 +29,8 @@ const HeaderStyled = styled.header`
         }
     }
     .toggle-planet {
-        background-color: yellow;
+        background-color: #444;
+        color: #ccc;
         border-radius: 5px;
         width: 100px;
         height: 40px;
@@ -35,13 +38,9 @@ const HeaderStyled = styled.header`
         transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
         &:hover {
-            color: white;
-            background-color: blue;
+            color: #ccc;
+            background-color: inherit;
         }
     }
-
-    /* a:hover {
-        background-color: #444;
-    } */
 `;
 export default HeaderStyled;

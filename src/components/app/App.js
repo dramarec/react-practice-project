@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import ErrorIndicator from '../error/ErrorIndicator';
 import Header from '../header/Header';
-import ItemList from '../itemList/ItemList';
-import PersonDetalis from '../personDetalis/PersonDetalis';
+import PeoplePage from '../peplePage/PeoplePage';
 import RandomPlanet from '../randomPlanet/RandomPlanet';
 import AppStyled from './AppStyled';
 
 export default class App extends Component {
     state = {
         showPlanet: true,
-        selectedPerson: 1,
         hasError: false,
     };
 
@@ -17,11 +15,6 @@ export default class App extends Component {
         this.setState(state => ({ showPlanet: !state.showPlanet }));
     };
 
-    onPersonSelected = id => {
-        this.setState({
-            selectedPerson: id,
-        });
-    };
     componentDidCatch(error, info) {
         console.log('componentDidcatch');
         console.log('info :', info);
@@ -38,10 +31,9 @@ export default class App extends Component {
                 <Header togleShowPlanet={this.togleShowPlanet} />
                 {planet}
 
-                <div className="d-flex">
-                    <ItemList onItemSelected={this.onPersonSelected} />
-                    <PersonDetalis personId={this.state.selectedPerson} />
-                </div>
+                <PeoplePage />
+                <PeoplePage />
+                <PeoplePage />
             </AppStyled>
         );
     }
