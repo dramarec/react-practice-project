@@ -27,7 +27,8 @@ const HeaderStyled = styled.header`
         }
     }
     .toggle-planet {
-        background-color: yellow;
+        background-color: #444;
+        color: #ccc;
         border-radius: 5px;
         width: 100px;
         height: 40px;
@@ -35,13 +36,9 @@ const HeaderStyled = styled.header`
         transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
         &:hover {
-            color: white;
-            background-color: blue;
+            color: #ccc;
+            background-color: grey;
         }
     }
-
-    /* a:hover {
-        background-color: #444;
-    } */
 `;
 export default HeaderStyled;
