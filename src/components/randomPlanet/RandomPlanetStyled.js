@@ -1,14 +1,12 @@
 import styled from 'styled-components';
 
 const RandomPlanetStyled = styled.div`
-    display: flex;
     padding: 1rem;
     border: 1px solid #444;
-    /* background-color: #444; */
-    /* outline: 1px solid #ccc; */
-    /* width: 700px; */
-    /* margin-right: auto; */
-    /* margin-left: auto; */
+    margin-bottom: 30px;
+    border-radius: 5px;
+    flex-direction: inherit;
+
     .planet-image {
         width: 150px;
         height: 150px;

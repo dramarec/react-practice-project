@@ -7,7 +7,7 @@ export default class ErrorButton extends Component {
         renderError: false,
     };
     render() {
-        console.log('render');
+        // console.log('render');
         if (this.state.renderError) {
             this.foo.bar = 0;
         }
@@ -23,12 +23,3 @@ export default class ErrorButton extends Component {
         );
     }
 }
-
-// {/* <button
-//     className="error-button btn btn-danger btn-lg"
-//     onClick={() => this.setState({ renderError: true })}
-// >
-//     <svg width="16px" height="15px">
-//         <use href={sprite + '#icon-warning'} />
-//     </svg>
-// </button> */}
