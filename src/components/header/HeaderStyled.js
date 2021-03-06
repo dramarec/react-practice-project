@@ -2,12 +2,15 @@ import styled from 'styled-components';
 
 const HeaderStyled = styled.header`
     display: flex;
+
+    align-items: flex-end;
     margin-top: 0.5rem;
     padding-left: 10px;
-    margin-bottom: 0;
+    margin-bottom: 0.5rem;
     .nav-logo {
         margin-right: auto;
         font-family: star_jedi_outline;
+        margin-bottom: 0;
     }
 
     .nav-list {

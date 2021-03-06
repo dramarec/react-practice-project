@@ -41,7 +41,7 @@ export default class PersonDetalis extends Component {
         } = this.state.person;
         return (
             // console.log('person :', this.state.person);
-            <PersonDetailsStyled className="person-details">
+            <PersonDetailsStyled className="person-details card">
                 <img
                     className="person-image"
                     alt="person"

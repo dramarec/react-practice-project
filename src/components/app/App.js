@@ -7,6 +7,7 @@ import ItemList from '../itemList/ItemList';
 import PersonDetalis from '../personDetalis/PersonDetalis';
 import RandomPlanet from '../randomPlanet/RandomPlanet';
 import AppStyled from './AppStyled';
+import sprite from '../../assets/symbol-defs.svg';
 
 export default class App extends Component {
     swapiService = new SwapiService();
@@ -38,11 +39,30 @@ export default class App extends Component {
 
                 <PeoplePage />
 
-                <ItemList
-                    getData={this.swapiService.getAllPlanets}
-                    onItemSelected={this.onPersonSelected}
-                />
-                <PersonDetalis personId={this.state.selectedPerson} />
+                <div>
+                    <ItemList
+                        getData={this.swapiService.getAllPlanets}
+                        onItemSelected={this.onPersonSelected}
+                        renderItem={item => (
+                            <span>
+                                <svg className="svg">
+                                    <use href={sprite + '#group-2'} />
+                                </svg>
+                                {item.name}
+                            </span>
+                        )}
+                    />
+                    <PersonDetalis personId={this.state.selectedPerson} />
+                </div>
+
+                <div>
+                    <ItemList
+                        getData={this.swapiService.getAllStarships}
+                        onItemSelected={this.onPersonSelected}
+                        renderItem={item => item.name}
+                    />
+                    <PersonDetalis personId={this.state.selectedPerson} />
+                </div>
             </AppStyled>
         );
     }

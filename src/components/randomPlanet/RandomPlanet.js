@@ -47,7 +47,7 @@ export default class RandomPlanet extends Component {
         const content = hasData ? <PlanetView planet={planet} /> : null;
 
         return (
-            <RandomPlanetStyled>
+            <RandomPlanetStyled className="hero card">
                 {errorMessage}
                 {spinner}
                 {content}
