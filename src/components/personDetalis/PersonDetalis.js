@@ -25,7 +25,6 @@ export default class PersonDetalis extends Component {
         }
         this.swapiService.getPerson(personId).then(person => {
             this.setState({ person });
-            // console.log('person :', person);
         });
     };
     render() {

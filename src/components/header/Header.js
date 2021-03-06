@@ -29,7 +29,6 @@ const Header = ({ togleShowPlanet }) => {
             </ul>
             <button
                 onClick={togleShowPlanet}
-                // className="toggle-planet btn btn-warning btn-lg"
                 className="toggle-planet "
                 type="button"
             >

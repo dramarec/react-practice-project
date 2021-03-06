@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
+import SwapiService from '../../services/api';
 import ErrorIndicator from '../error/ErrorIndicator';
 import Header from '../header/Header';
 import PeoplePage from '../peplePage/PeoplePage';
+import ItemList from '../itemList/ItemList';
+import PersonDetalis from '../personDetalis/PersonDetalis';
 import RandomPlanet from '../randomPlanet/RandomPlanet';
 import AppStyled from './AppStyled';
 
 export default class App extends Component {
+    swapiService = new SwapiService();
+
     state = {
         showPlanet: true,
         hasError: false,
@@ -16,24 +21,28 @@ export default class App extends Component {
     };
 
     componentDidCatch(error, info) {
-        console.log('componentDidcatch');
-        console.log('info :', info);
-        console.log('error :', error);
         this.setState({ hasError: true });
     }
+
     render() {
         if (this.state.hasError) {
             return <ErrorIndicator />;
         }
+
         const planet = this.state.showPlanet ? <RandomPlanet /> : null;
+
         return (
             <AppStyled>
                 <Header togleShowPlanet={this.togleShowPlanet} />
                 {planet}
 
                 <PeoplePage />
-                <PeoplePage />
-                <PeoplePage />
+
+                <ItemList
+                    getData={this.swapiService.getAllPlanets}
+                    onItemSelected={this.onPersonSelected}
+                />
+                <PersonDetalis personId={this.state.selectedPerson} />
             </AppStyled>
         );
     }
