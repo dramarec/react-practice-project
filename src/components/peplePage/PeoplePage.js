@@ -1,26 +1,11 @@
 import React, { Component } from 'react';
 import SwapiService from '../../services/api';
+import ErrorBoundry from '../erroBoundry/ErrorBoundry';
 import ErrorIndicator from '../error/ErrorIndicator';
 import ItemList from '../itemList/ItemList';
 import PersonDetalis from '../personDetalis/PersonDetalis';
 import PeoplePageStyled from './PeoplePageStyled';
 
-class ErrorBoundry extends Component {
-    state = {
-        hasError: false,
-    };
-    componentDidCatch(error, info) {
-        this.setState({
-            hasError: true,
-        });
-    }
-    render() {
-        if (this.state.hasError) {
-            return <ErrorIndicator />;
-        }
-        return this.props.children;
-    }
-}
 export default class PeoplePage extends Component {
     swapiService = new SwapiService();
 
@@ -56,10 +41,12 @@ export default class PeoplePage extends Component {
             </ErrorBoundry>
         );
         return (
-            <PeoplePageStyled className="peoplePage">
-                <div className="peopleList">{itemlist}</div>
-                <div>{personDetails}</div>
-            </PeoplePageStyled>
+            <ErrorBoundry>
+                <PeoplePageStyled className="peoplePage">
+                    <div className="peopleList">{itemlist}</div>
+                    <div>{personDetails}</div>
+                </PeoplePageStyled>
+            </ErrorBoundry>
         );
     }
 }
