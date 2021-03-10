@@ -4,7 +4,6 @@ import Header from '../header/Header';
 import RandomPlanet from '../randomPlanet/RandomPlanet';
 import AppStyled from './AppStyled';
 import sprite from '../../assets/symbol-defs.svg';
-import ItemDetails, { Record } from '../itemDetails/ItemDetails';
 // import Row from '../row/Row';
 import ErrorBoundry from '../erroBoundry/ErrorBoundry';
 import {
@@ -32,46 +31,27 @@ export default class App extends Component {
     render() {
         const planet = this.state.showPlanet ? <RandomPlanet /> : null;
 
-        const {
-            getAllPlanets,
-            getAllStarships,
-            getAllPeople,
-        } = this.swapiService;
-
         return (
             <ErrorBoundry>
                 <AppStyled>
                     <Header togleShowPlanet={this.togleShowPlanet} />
                     {planet}
+
                     <PersonDetails itemId={11} />
                     <PlanetDetails itemId={11} />
                     <StarshipDetails itemId={11} />
-                    <PersonList
-                        getData={getAllPeople}
-                        onItemSelected={() => {}}
-                    >
-                        {item => (
-                            <span>
-                                <svg className="svg">
-                                    <use href={sprite + '#group-2'} />
-                                </svg>
-                                {item.name}
-                            </span>
-                        )}
-                    </PersonList>
-                    <PlanetList
-                        getData={getAllPlanets}
-                        onItemSelected={() => {}}
-                    >
-                        {({ name }) => <span>{name}</span>}
-                    </PlanetList>
 
-                    <StarshipList
-                        getData={getAllStarships}
-                        onItemSelected={() => {}}
-                    >
-                        {item => item.name}
-                    </StarshipList>
+                    <PersonList onItemSelected={() => {}}>
+                        {
+                            <svg className="svg">
+                                <use href={sprite + '#group-2'} />
+                            </svg>
+                        }
+                    </PersonList>
+                    <PlanetList onItemSelected={() => {}} />
+
+                    <StarshipList onItemSelected={() => {}} />
+
                     {/* <Row left={personDetails} right={starshipDetails} /> */}
                 </AppStyled>
             </ErrorBoundry>

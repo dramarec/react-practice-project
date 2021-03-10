@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import SwapiService from '../../services/api';
 import ErrorBoundry from '../erroBoundry/ErrorBoundry';
 import ErrorIndicator from '../error/ErrorIndicator';
-import ItemDetails from '../itemDetails/ItemDetails';
 import ItemList from '../itemList/ItemList';
 import Row from '../row/Row';
 // import PeoplePageStyled from './PeoplePageStyled';
