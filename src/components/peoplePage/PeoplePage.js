@@ -38,15 +38,11 @@ export default class PeoplePage extends Component {
         );
         const personDetails = (
             <ErrorBoundry>
-                <ItemDetails itemId={this.state.selectedPerson} />
+                {/* <ItemDetails itemId={this.state.selectedPerson} /> */}
             </ErrorBoundry>
         );
         return (
             <ErrorBoundry>
-                {/* <PeoplePageStyled Styled className="PeoplePage ">
-                    <div className="peopleList">{itemlist}</div>
-                    <div>{personDetails}</div>
-                </PeoplePageStyled> */}
                 <Row left={itemlist} right={personDetails} />
             </ErrorBoundry>
         );

@@ -6,5 +6,8 @@ const RowStyled = styled.div`
     .rowLeft {
         margin-right: auto;
     }
+    .row {
+        /* width: 380px; */
+    }
 `;
 export default RowStyled;
