@@ -2,15 +2,16 @@ import React, { Component } from 'react';
 import SwapiService from '../../services/api';
 import ErrorBoundry from '../erroBoundry/ErrorBoundry';
 import ErrorIndicator from '../error/ErrorIndicator';
+import ItemDetails from '../itemDetails/ItemDetails';
 import ItemList from '../itemList/ItemList';
-import PersonDetalis from '../personDetalis/PersonDetalis';
-import PeoplePageStyled from './PeoplePageStyled';
+import Row from '../row/Row';
+// import PeoplePageStyled from './PeoplePageStyled';
 
 export default class PeoplePage extends Component {
     swapiService = new SwapiService();
 
     state = {
-        selectedPerson: 1,
+        selectedPerson: 13,
     };
 
     onPersonSelected = id => {
@@ -37,15 +38,12 @@ export default class PeoplePage extends Component {
         );
         const personDetails = (
             <ErrorBoundry>
-                <PersonDetalis personId={this.state.selectedPerson} />
+                {/* <ItemDetails itemId={this.state.selectedPerson} /> */}
             </ErrorBoundry>
         );
         return (
             <ErrorBoundry>
-                <PeoplePageStyled className="peoplePage">
-                    <div className="peopleList">{itemlist}</div>
-                    <div>{personDetails}</div>
-                </PeoplePageStyled>
+                <Row left={itemlist} right={personDetails} />
             </ErrorBoundry>
         );
     }
