@@ -5,9 +5,8 @@ import RandomPlanet from '../randomPlanet/RandomPlanet';
 import AppStyled from './AppStyled';
 import ItemList from '../itemList/ItemList';
 import sprite from '../../assets/symbol-defs.svg';
-import PeoplePage from '../peoplePage/PeoplePage';
 import ItemDetails, { Record } from '../itemDetails/ItemDetails';
-import Row from '../row/Row';
+// import Row from '../row/Row';
 import ErrorBoundry from '../erroBoundry/ErrorBoundry';
 
 export default class App extends Component {
@@ -62,10 +61,8 @@ export default class App extends Component {
                     <Header togleShowPlanet={this.togleShowPlanet} />
                     {planet}
                     {/* <PeoplePage /> */}
-                    <ItemList
-                        getData={getAllPeople}
-                        onItemSelected={() => {}}
-                        renderItem={item => (
+                    <ItemList getData={getAllPeople} onItemSelected={() => {}}>
+                        {item => (
                             <span>
                                 <svg className="svg">
                                     <use href={sprite + '#group-2'} />
@@ -73,18 +70,17 @@ export default class App extends Component {
                                 {item.name}
                             </span>
                         )}
-                    />
-                    <ItemList
-                        getData={getAllPlanets}
-                        onItemSelected={() => {}}
-                        renderItem={({ name }) => <span>{name}</span>}
-                    />
+                    </ItemList>
+                    <ItemList getData={getAllPlanets} onItemSelected={() => {}}>
+                        {({ name }) => <span>{name}</span>}
+                    </ItemList>
 
                     <ItemList
                         getData={getAllStarships}
                         onItemSelected={() => {}}
-                        renderItem={item => item.name}
-                    />
+                    >
+                        {item => item.name}
+                    </ItemList>
                     {/* <Row left={personDetails} right={starshipDetails} /> */}
                 </AppStyled>
             </ErrorBoundry>

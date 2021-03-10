@@ -1,55 +1,33 @@
-import React, { Component } from 'react';
-import Spinner from '../spinner/Spinner';
+import React from 'react';
+import SwapiService from '../../services/api';
+import WithData from '../hocHelpers/WithData';
 import ItemListStyled from './ItemListStyled';
-class ItemList extends Component {
-    renderItems(arr) {
-        return arr.map(item => {
-            const { id } = item;
-            //!dont work children
-            // const label = this.props.children(item);
-            const label = this.props.renderItem(item);
-            return (
-                <li
-                    className="list-group-item"
-                    key={id}
-                    onClick={() => this.props.onItemSelected(id)}
-                >
-                    {label}
-                </li>
-            );
-        });
-    }
 
-    render() {
-        const { data } = this.props;
+const ItemList = props => {
+    const { data, onItemSelected, children: renderLabel } = props;
 
-        const items = this.renderItems(data);
+    const items = data.map(item => {
+        const { id } = item;
+
+        const label = renderLabel(item);
+
         return (
-            <ItemListStyled>
-                <ul className="item-list list-group">{items}</ul>
-            </ItemListStyled>
+            <li
+                className="list-group-item"
+                key={id}
+                onClick={() => onItemSelected(id)}
+            >
+                {label}
+            </li>
         );
-    }
-}
+    });
 
-const withData = View => {
-    return class extends Component {
-        state = {
-            data: null,
-        };
-        componentDidMount() {
-            const { getData } = this.props;
-            getData().then(data => {
-                this.setState({ data });
-            });
-        }
-        render() {
-            const { data } = this.state;
-            if (!data) {
-                return <Spinner />;
-            }
-            return <View {...this.props} data={data} />;
-        }
-    };
+    return (
+        <ItemListStyled>
+            <ul className="item-list list-group">{items}</ul>
+        </ItemListStyled>
+    );
 };
-export default withData(ItemList);
+
+const { getAllPeople } = new SwapiService();
+export default WithData(ItemList, getAllPeople);
