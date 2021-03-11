@@ -4,17 +4,11 @@ import SwapiService from '../../services/api';
 import Header from '../header/Header';
 import RandomPlanet from '../randomPlanet/RandomPlanet';
 import AppStyled from './AppStyled';
-import Row from '../row/Row';
 import ErrorBoundry from '../error/erroBoundry/ErrorBoundry';
 import { SwapiServiceProvider } from '../swapiServiceContext/SwapiServiceContext';
-import {
-    PersonDetails,
-    PersonList,
-    PlanetDetails,
-    PlanetList,
-    StarshipDetails,
-    StarshipList,
-} from '../swComponents';
+import PeoplePage from '../pages/PeoplePage';
+import PlanetsPage from '../pages/PlanetsPage';
+import StarshipsPage from '../pages/StarshipsPage';
 
 export default class App extends Component {
     // swapiService = new DummySwapiService();
@@ -38,18 +32,9 @@ export default class App extends Component {
                         <Header togleShowPlanet={this.togleShowPlanet} />
                         {planet}
 
-                        <Row
-                            left={<PersonList />}
-                            right={<PersonDetails itemId={10} />}
-                        />
-                        <Row
-                            left={<PlanetList />}
-                            right={<PlanetDetails itemId={11} />}
-                        />
-                        <Row
-                            left={<StarshipList />}
-                            right={<StarshipDetails itemId={11} />}
-                        />
+                        <PeoplePage />
+                        <PlanetsPage />
+                        <StarshipsPage />
                     </AppStyled>
                 </SwapiServiceProvider>
             </ErrorBoundry>
