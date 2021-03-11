@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import SwapiService from '../../services/api';
-import ErrorButton from '../errorButton/ErrorButton';
+import ErrorButton from '../error/errorButton/ErrorButton';
 import PersonDetailsStyled from './ItemDetailsStyled';
 
 const Record = ({ item, field, label }) => {
