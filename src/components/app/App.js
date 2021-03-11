@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
+// import DummySwapiService from '../../services/dummy-swapi-service';
 import SwapiService from '../../services/api';
 import Header from '../header/Header';
 import RandomPlanet from '../randomPlanet/RandomPlanet';
 import AppStyled from './AppStyled';
 import Row from '../row/Row';
 import ErrorBoundry from '../error/erroBoundry/ErrorBoundry';
-
 import { SwapiServiceProvider } from '../swapiServiceContext/SwapiServiceContext';
 import {
     PersonDetails,
@@ -17,6 +17,7 @@ import {
 } from '../swComponents';
 
 export default class App extends Component {
+    // swapiService = new DummySwapiService();
     swapiService = new SwapiService();
 
     state = {
