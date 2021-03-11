@@ -24,6 +24,7 @@ const withData = (View, getData) => {
                     this.setState({ error: true, loading: false });
                 });
         }
+
         render() {
             const { data, loading, error } = this.state;
             if (loading) {
