@@ -2,24 +2,48 @@ import styled from 'styled-components';
 
 const HeaderStyled = styled.header`
     display: flex;
+
+    align-items: flex-end;
     margin-top: 0.5rem;
     padding-left: 10px;
-    h1 {
+    margin-bottom: 0.5rem;
+    .nav-logo {
+        margin-right: auto;
         font-family: star_jedi_outline;
+        margin-bottom: 0;
     }
 
-    ul {
+    .nav-list {
         list-style: none;
         display: flex;
         padding: 0.5rem 1rem;
         border-radius: 3px;
-    }
-    li {
-        margin-right: 40px;
+        margin-bottom: 0;
     }
 
-    /* a:hover {
+    .nav-item {
+        margin-right: 40px;
+    }
+    .nav-links {
+        transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+        &:hover {
+            color: #ccc;
+        }
+    }
+    .toggle-planet {
         background-color: #444;
-    } */
+        color: #ccc;
+        border-radius: 5px;
+        width: 100px;
+        height: 40px;
+        border: none;
+        transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+        &:hover {
+            color: #ccc;
+            background-color: inherit;
+        }
+    }
 `;
 export default HeaderStyled;

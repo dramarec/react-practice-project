@@ -1,15 +1,33 @@
-import React, { Component } from 'react';
+import React from 'react';
+import ErrorBoundry from '../error/erroBoundry/ErrorBoundry';
+import ItemListStyled from './ItemListStyled';
 
-export default class ItemList extends Component {
-    render() {
+const ItemList = props => {
+    const { data, onItemSelected, children: renderLabel } = props;
+
+    const items = data.map(item => {
+        const { id } = item;
+
+        const label = renderLabel(item);
+
         return (
-            <div>
-                <ul>
-                    <li>Luke Skywalker</li>
-                    <li> Darth Vader</li>
-                    <li> R2-D2</li>
-                </ul>
-            </div>
+            <li
+                className="list-group-item"
+                key={id}
+                onClick={() => onItemSelected(id)}
+            >
+                {label}
+            </li>
         );
-    }
-}
+    });
+
+    return (
+        <ErrorBoundry>
+            <ItemListStyled>
+                <ul className="item-list list-group">{items}</ul>
+            </ItemListStyled>
+        </ErrorBoundry>
+    );
+};
+
+export default ItemList;
