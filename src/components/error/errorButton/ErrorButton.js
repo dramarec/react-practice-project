@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import sprite from '../../assets/symbol-defs.svg';
+import sprite from '../../../assets/symbol-defs.svg';
 import ErrorButtonStyled from './ErrorButtonStyled';
 
 export default class ErrorButton extends Component {
@@ -7,7 +7,6 @@ export default class ErrorButton extends Component {
         renderError: false,
     };
     render() {
-        // console.log('render');
         if (this.state.renderError) {
             this.foo.bar = 0;
         }

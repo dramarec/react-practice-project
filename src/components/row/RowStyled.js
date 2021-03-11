@@ -4,10 +4,7 @@ const RowStyled = styled.div`
     display: flex;
     margin-bottom: 15px;
     .rowLeft {
-        margin-right: auto;
-    }
-    .row {
-        /* width: 380px; */
+        margin-right: 12px;
     }
 `;
 export default RowStyled;

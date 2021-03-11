@@ -4,8 +4,8 @@ import RowStyled from './RowStyled';
 const Row = ({ left, right }) => {
     return (
         <RowStyled>
-            <div className="row rowLeft">{left}</div>
-            <div className="row rowRight">{right}</div>
+            <div className="rowLeft">{left}</div>
+            <div className="rowRight">{right}</div>
         </RowStyled>
     );
 };

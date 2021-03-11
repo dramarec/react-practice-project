@@ -1,4 +1,5 @@
 import React from 'react';
+import ErrorBoundry from '../error/erroBoundry/ErrorBoundry';
 import ItemListStyled from './ItemListStyled';
 
 const ItemList = props => {
@@ -21,9 +22,11 @@ const ItemList = props => {
     });
 
     return (
-        <ItemListStyled>
-            <ul className="item-list list-group">{items}</ul>
-        </ItemListStyled>
+        <ErrorBoundry>
+            <ItemListStyled>
+                <ul className="item-list list-group">{items}</ul>
+            </ItemListStyled>
+        </ErrorBoundry>
     );
 };
 

@@ -1,23 +1,23 @@
 import React, { Component } from 'react';
+// import DummySwapiService from '../../services/dummy-swapi-service';
 import SwapiService from '../../services/api';
 import Header from '../header/Header';
 import RandomPlanet from '../randomPlanet/RandomPlanet';
 import AppStyled from './AppStyled';
-import sprite from '../../assets/symbol-defs.svg';
-// import Row from '../row/Row';
-import ErrorBoundry from '../erroBoundry/ErrorBoundry';
-import {
-    PersonList,
-    PlanetList,
-    StarshipList,
-} from '../swComponents/ItemsLists';
+import Row from '../row/Row';
+import ErrorBoundry from '../error/erroBoundry/ErrorBoundry';
+import { SwapiServiceProvider } from '../swapiServiceContext/SwapiServiceContext';
 import {
     PersonDetails,
+    PersonList,
     PlanetDetails,
+    PlanetList,
     StarshipDetails,
-} from '../swComponents/Details';
+    StarshipList,
+} from '../swComponents';
 
 export default class App extends Component {
+    // swapiService = new DummySwapiService();
     swapiService = new SwapiService();
 
     state = {
@@ -33,27 +33,25 @@ export default class App extends Component {
 
         return (
             <ErrorBoundry>
-                <AppStyled>
-                    <Header togleShowPlanet={this.togleShowPlanet} />
-                    {planet}
+                <SwapiServiceProvider value={this.swapiService}>
+                    <AppStyled>
+                        <Header togleShowPlanet={this.togleShowPlanet} />
+                        {planet}
 
-                    <PersonDetails itemId={11} />
-                    <PlanetDetails itemId={11} />
-                    <StarshipDetails itemId={11} />
-
-                    <PersonList onItemSelected={() => {}}>
-                        {
-                            <svg className="svg">
-                                <use href={sprite + '#group-2'} />
-                            </svg>
-                        }
-                    </PersonList>
-                    <PlanetList onItemSelected={() => {}} />
-
-                    <StarshipList onItemSelected={() => {}} />
-
-                    {/* <Row left={personDetails} right={starshipDetails} /> */}
-                </AppStyled>
+                        <Row
+                            left={<PersonList />}
+                            right={<PersonDetails itemId={10} />}
+                        />
+                        <Row
+                            left={<PlanetList />}
+                            right={<PlanetDetails itemId={11} />}
+                        />
+                        <Row
+                            left={<StarshipList />}
+                            right={<StarshipDetails itemId={11} />}
+                        />
+                    </AppStyled>
+                </SwapiServiceProvider>
             </ErrorBoundry>
         );
     }
