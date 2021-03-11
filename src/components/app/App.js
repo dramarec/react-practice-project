@@ -5,17 +5,16 @@ import RandomPlanet from '../randomPlanet/RandomPlanet';
 import AppStyled from './AppStyled';
 import Row from '../row/Row';
 import ErrorBoundry from '../error/erroBoundry/ErrorBoundry';
-import {
-    PersonList,
-    PlanetList,
-    StarshipList,
-} from '../swComponents/ItemsLists';
+
+import { SwapiServiceProvider } from '../swapiServiceContext/SwapiServiceContext';
 import {
     PersonDetails,
+    PersonList,
     PlanetDetails,
+    PlanetList,
     StarshipDetails,
-} from '../swComponents/Details';
-import { SwapiServiceProvider } from '../swapiServiceContext/SwapiServiceContext';
+    StarshipList,
+} from '../swComponents';
 
 export default class App extends Component {
     swapiService = new SwapiService();
@@ -40,7 +39,7 @@ export default class App extends Component {
 
                         <Row
                             left={<PersonList />}
-                            right={<PersonDetails itemId={11} />}
+                            right={<PersonDetails itemId={10} />}
                         />
                         <Row
                             left={<PlanetList />}

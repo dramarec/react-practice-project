@@ -44,18 +44,20 @@ export default class ItemDetails extends Component {
         }
         const { name } = this.state.item;
         return (
-            <PersonDetailsStyled className="person-details card">
-                <img className="item-image" alt="item" src={image} />
-                <div className="card-body">
-                    <h4>{name}</h4>
-                    <ul className="list-group list-group-flush">
-                        {React.Children.map(this.props.children, child => {
-                            return React.cloneElement(child, { item });
-                        })}
-                    </ul>
-                </div>
-                <ErrorButton />
-            </PersonDetailsStyled>
+            <>
+                <PersonDetailsStyled className="person-details card">
+                    <img className="item-image" alt="item" src={image} />
+                    <div className="card-body">
+                        <h4>{name}</h4>
+                        <ul className="list-group list-group-flush">
+                            {React.Children.map(this.props.children, child => {
+                                return React.cloneElement(child, { item });
+                            })}
+                        </ul>
+                    </div>
+                    <ErrorButton />
+                </PersonDetailsStyled>
+            </>
         );
     }
 }

@@ -12,14 +12,6 @@ const PersonDetailsStyled = styled.div`
         height: 60%;
         border-radius: 10px;
     }
-
-    /* .list-group-item {
-        padding: 0.25rem;
-    }
-
-    .list-group-item .term {
-        margin-right: 0.5rem;
-    } */
 `;
 
 export default PersonDetailsStyled;
